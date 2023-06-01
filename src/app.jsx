@@ -1,5 +1,8 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { createRoot } from "react-dom/client";
+import Header from "./Header";
+import Footer from "./Footer";
+import TaskList from "./TaskList";
 
 const App = () => {
   let [taskInput, setTaskInput] = useState("");
@@ -21,7 +24,7 @@ const App = () => {
 
   return (
     <div className="container">
-      <h1 className="logo">todo.</h1>
+      <Header />
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -31,15 +34,8 @@ const App = () => {
           placeholder="Create a task and press enter to submit"
         />
       </form>
-      {!tasks.length ? (
-        <h2>Add a task to get started!</h2>
-      ) : (
-        <ul>
-          {tasks.map((task, index) => {
-            return <li key={task.id}>{task.task}</li>;
-          })}
-        </ul>
-      )}
+      <TaskList tasks={tasks} />
+      <Footer />
     </div>
   );
 };
