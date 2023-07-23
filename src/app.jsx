@@ -3,6 +3,7 @@ import { createRoot } from "react-dom/client";
 import Header from "./Header";
 import Footer from "./Footer";
 import TaskList from "./TaskList";
+import { FaClipboardList } from "react-icons/fa6";
 
 const App = () => {
   let [taskInput, setTaskInput] = useState("");
@@ -23,20 +24,44 @@ const App = () => {
   }
 
   return (
-    <div className="container">
-      <Header />
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          name="taskInput"
-          value={taskInput}
-          onChange={(e) => setTaskInput(e.target.value)}
-          placeholder="Create a task and press enter to submit"
-        />
-      </form>
-      <TaskList tasks={tasks} />
+    <>
+      <div className="container">
+        <Header />
+        <div className="taskForm">
+          <form onSubmit={handleSubmit}>
+            <input
+              type="text"
+              name="taskInput"
+              value={taskInput}
+              onChange={(e) => setTaskInput(e.target.value)}
+              placeholder="Create a task and press enter to submit"
+              // eslint-disable-next-line jsx-a11y/no-autofocus
+              autoFocus
+            />
+            <button type="submit">Create</button>
+          </form>
+        </div>
+        <div>
+          <ul>
+            <li>
+              <strong>
+                <FaClipboardList />
+                Main
+              </strong>
+            </li>
+            <li>
+              <FaClipboardList />
+              Secondary
+            </li>
+            <li>Create a new List</li>
+          </ul>
+        </div>
+        <div>
+          <TaskList tasks={tasks} />
+        </div>
+      </div>
       <Footer />
-    </div>
+    </>
   );
 };
 
