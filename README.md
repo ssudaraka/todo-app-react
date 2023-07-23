@@ -1,6 +1,6 @@
 # todo-app-react
 
-I created this simple Todo app to demonstrate some basic React concepts. I'm planning to integrate Supabase on top of it have it persist data.
+I created this simple Todo app to demonstrate some basic React concepts. I'm planning to integrate Supabase on top of it to have it persist data.
 This is a learning experience, nothing much 😊
 
 This app is created with Vite. To launch the application in dev mode use:
